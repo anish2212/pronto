@@ -21,7 +21,7 @@ def receieve_sms():
     from_number = request.values.get('From', None)
     body = request.values.get('Body', None)
     send_sms(from_number, body)
-    return None
+    return "OK"
     
 """
     resp = twilio.twiml.Response()
