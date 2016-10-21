@@ -6,6 +6,7 @@ app = Flask(__name__)
 account_sid = "AC471b4009becda2f23c3fe90df58dd7cc"
 auth_token = "dae6dc2569f846ab2b9e2404c7b1d876"
 from_number = "+19092199424"
+lynn_number = "+19095291698"
 #FIREBASE_URL = "https://pronto-health.firebaseio.com/"
 #fb = firebase.FirebaseApplication(FIREBASE_URL, None) # Create a reference to the Firebase Application
 
@@ -31,7 +32,8 @@ def send_sms(to_number, message_body):
 def receieve_sms():
     from_number = request.values.get('From', None)
     body = request.values.get('Body', None)
-    send_sms(from_number, body)
+    forward = "Response from " + from_number + ": " + body
+    send_sms(lynn_number, forward)
     return "OK"
     
 """
